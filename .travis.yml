@@ -16,6 +16,6 @@ script:
 
 after_script:
   - (docker images | egrep "blynk-client +$VERSION") || travis_terminate 1;
-  - docker rm -f "blynk-client:$VERSION"
+  - docker rmi "blynk-client:$VERSION"
 
 # vim:set et ts=2 sw=2:
