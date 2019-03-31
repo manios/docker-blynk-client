@@ -1,0 +1,21 @@
+language: bash
+services: docker
+
+env:
+  - VERSION=0.41.5
+  
+install:
+  - git clone https://github.com/manios/docker-blynk-client.git
+
+before_script:
+  - env | sort
+  - image="blynk-client:$VERSION"
+
+script:
+  - travis_retry docker build -t "$image" .
+
+after_script:
+  - docker images | egrep ""blynk-client:$VERSION""
+  - docker rm -f myvarnish
+
+# vim:set et ts=2 sw=2:
