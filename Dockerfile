@@ -5,7 +5,6 @@ ENV BLYNK_SERVER_VERSION 0.41.5
 RUN apt-get update                 && \
     apt-get install -y wget vim    && \
     cd ~                           && \
-    BLYNK_SERVER_VERSION=0.41.1    && \
     wget -q -O ~/blynk-client.tar.gz "https://github.com/blynkkk/blynk-server/archive/v${BLYNK_SERVER_VERSION}.tar.gz" && \
     tar zxf ~/blynk-client.tar.gz  && \
     cd ~/blynk-server-${BLYNK_SERVER_VERSION}    && \
